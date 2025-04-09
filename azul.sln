@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContaAzul", "ContaAzul\ContaAzul.csproj", "{277108DD-C72C-652C-58FB-0FE489A38A8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{277108DD-C72C-652C-58FB-0FE489A38A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277108DD-C72C-652C-58FB-0FE489A38A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277108DD-C72C-652C-58FB-0FE489A38A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277108DD-C72C-652C-58FB-0FE489A38A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6602DBC8-4EE2-452B-8AB7-371689E99A2B}
+	EndGlobalSection
+EndGlobal
