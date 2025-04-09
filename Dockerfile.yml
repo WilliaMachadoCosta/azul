@@ -1,14 +1,21 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 as build
+# Etapa 1 - Build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copia os arquivos da solution e restaura
+COPY ./azul.sln ./
+COPY ./ContaAzul/ContaAzul.csproj ./ContaAzul/
+RUN dotnet restore ./ContaAzul/ContaAzul.csproj
+
+# Copia o restante dos arquivos e publica
+COPY . ./
+WORKDIR /src/ContaAzul
+RUN dotnet publish -c Release -o /app/publish
+
+# Etapa 2 - Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+COPY --from=build /app/publish .
 
-COPY . .
-RUN dotnet publish -c Release -o /out
-
-FROM mcr.microsoft.com/dotnet/sdk:8.0
-WORKDIR /app
-
-COPY --from=build /out .
-
-EXPOSE 8080
-
-ENTRYPOINT ["dotnet", "ReadmeServer.dll"]
+EXPOSE 80
+ENTRYPOINT ["dotnet", "ContaAzul.dll"]
