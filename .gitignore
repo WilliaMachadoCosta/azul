@@ -1,0 +1,50 @@
+## Compilação
+bin/
+obj/
+out/
+
+## Usuário e config local
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+*.swp
+
+## Logs
+*.log
+
+## Configuração de build e publish
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Configs do Rider e VSCode
+.idea/
+.vscode/
+
+## Pacotes
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+*.dSYM/
+
+## Publish
+wwwroot/dist/
+wwwroot/node_modules/
+
+## Sistema operacional
+.DS_Store
+Thumbs.db
+
+## Dotnet Secrets
+secrets.json
+
+## Testes
+TestResults/
+*.coverage
+*.coveragexml
+
+## Outros
+*.db

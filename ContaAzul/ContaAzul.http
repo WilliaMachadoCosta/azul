@@ -1,0 +1,6 @@
+@ContaAzul_HostAddress = http://localhost:5057
+
+GET {{ContaAzul_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
