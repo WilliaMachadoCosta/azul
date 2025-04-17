@@ -22,7 +22,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: 🔐 Login no Amazon ECR
-        run: aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REPOSITORY }}
+        run: aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_URL }}
 
       - name: 🏗️ Build da Imagem Docker
         run: |
@@ -49,8 +49,8 @@ jobs:
       - name: 📦 Baixar e Executar a Imagem no EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@${{ secrets.EC2_INSTANCE_IP }} << 'EOF'
-          docker pull ${{ secrets.AWS_ECR_REPOSITORY }}:latest
-          docker stop meu-app || true
-          docker rm meu-app || true
-          docker run -d --name meu-app -p 80:80 ${{ secrets.AWS_ECR_REPOSITORY }}:latest
+            docker pull ${{ secrets.AWS_ECR_REPOSITORY }}:latest
+            docker stop meu-app || true
+            docker rm meu-app || true
+            docker run -d --name meu-app -p 80:80 ${{ secrets.AWS_ECR_REPOSITORY }}:latest
           EOF
