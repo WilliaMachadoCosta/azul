@@ -55,8 +55,8 @@ jobs:
             sudo systemctl start docker
             sudo usermod -aG docker ec2-user
 
-            docker pull ${{ secrets.AWS_ECR_REPOSITORY }}:latest
-            docker stop meu-app || true
-            docker rm meu-app || true
-            docker run -d --name meu-app -p 80:80 ${{ secrets.AWS_ECR_REPOSITORY }}:latest
+            sudo docker pull ${{ secrets.AWS_ECR_REPOSITORY }}:latest
+            sudo docker stop meu-app || true
+            sudo docker rm meu-app || true
+            sudo docker run -d --name meu-app -p 80:80 ${{ secrets.AWS_ECR_REPOSITORY }}:latest
           EOF
