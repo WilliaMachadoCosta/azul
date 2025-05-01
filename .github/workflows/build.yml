@@ -49,6 +49,12 @@ jobs:
       - name: 📦 Baixar e Executar a Imagem no EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i private_key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} << 'EOF'
+            sudo dnf update -y
+            sudo dnf install -y docker
+            sudo systemctl enable docker
+            sudo systemctl start docker
+            sudo usermod -aG docker ec2-user
+
             docker pull ${{ secrets.AWS_ECR_REPOSITORY }}:latest
             docker stop meu-app || true
             docker rm meu-app || true
